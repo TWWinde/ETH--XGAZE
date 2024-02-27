@@ -143,7 +143,11 @@ if __name__ == '__main__':
     # data normalization method
     print('data normalization, i.e. crop the face image')
     img_normalized, landmarks_normalized = normalizeData_face(image, face_model, landmarks_sub, hr, ht, camera_matrix)
+    output_path = 'example/output/results_gaze.jpg'
+    print('save output image to: ', output_path)
+    cv2.imwrite(output_path, img_normalized)
 
+'''
     print('load gaze estimator')
     model = gaze_network()
     model.cuda() # comment this line out if you are not using GPU
@@ -173,3 +177,4 @@ if __name__ == '__main__':
     output_path = 'example/output/results_gaze.jpg'
     print('save output image to: ', output_path)
     cv2.imwrite(output_path, face_patch_gaze)
+'''
