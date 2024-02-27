@@ -138,7 +138,7 @@ if __name__ == '__main__':
     ## the easy way to get head pose information, fast and simple
     facePts = face_model.reshape(6, 1, 3)
     #landmarks_sub = landmarks[[36, 39, 42, 45, 31, 35], :]
-    landmarks_sub = landmarks[[36, 39, 42, 45], :]
+    landmarks_sub = landmarks[[36, 39, 42, 45 ], :]
     landmarks_sub = landmarks_sub.astype(float)  # input to solvePnP function must be float type
     landmarks_sub = landmarks_sub.reshape(6, 1, 2)  # input to solvePnP requires such shape
     hr, ht = estimateHeadPose(landmarks_sub, facePts, camera_matrix, camera_distortion)
