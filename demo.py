@@ -139,6 +139,7 @@ if __name__ == '__main__':
     landmarks_sub = landmarks_sub.astype(float)  # input to solvePnP function must be float type
     landmarks_sub = landmarks_sub.reshape(6, 1, 2)  # input to solvePnP requires such shape
     hr, ht = estimateHeadPose(landmarks_sub, facePts, camera_matrix, camera_distortion)
+    print(hr, ht)
 
     # data normalization method
     print('data normalization, i.e. crop the face image')
