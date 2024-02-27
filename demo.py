@@ -122,7 +122,8 @@ if __name__ == '__main__':
     fs = cv2.FileStorage(cam_file_name, cv2.FILE_STORAGE_READ)
     camera_matrix = fs.getNode('Camera_Matrix').mat() # camera calibration information is used for data normalization
     camera_distortion = fs.getNode('Distortion_Coefficients').mat()
-
+    print(camera_matrix)
+    print(camera_distortion)
     print('estimate head pose')
     # load face model
     face_model_load = np.loadtxt('face_model.txt')  # Generic face model with 3D facial landmarks
