@@ -95,7 +95,7 @@ def normalizeData_face(img, face_model, landmarks, hr, ht, cam):
     return img_warped, landmarks_warped
 
 if __name__ == '__main__':
-    img_file_name = '/projects/tang/ETH--XGAZE/example/output/image1.jpg'
+    img_file_name = './example/input/cam00.JPG'
     print('load input face image: ', img_file_name)
     image = cv2.imread(img_file_name)
 
@@ -103,6 +103,7 @@ if __name__ == '__main__':
     # face_detector = dlib.cnn_face_detection_model_v1('./modules/mmod_human_face_detector.dat')
     face_detector = dlib.get_frontal_face_detector()  ## this face detector is not very powerful
     detected_faces = face_detector(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), 1) ## convert BGR image to RGB for dlib
+
     if len(detected_faces) == 0:
         print('warning: no detected face')
         exit(0)
