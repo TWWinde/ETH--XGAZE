@@ -54,7 +54,7 @@ def normalizeData_face(img, face_model, landmarks, hr, ht, cam):
     two_eye_center = np.mean(Fc[:, 0:4], axis=1).reshape((3, 1))
     nose_center = np.mean(Fc[:, 4:6], axis=1).reshape((3, 1))
     # get the face center
-    face_center = np.mean(np.concatenate((two_eye_center, nose_center), axis=1), axis=1).reshape((3, 1))
+    face_center = np.mean(np.concatenate((two_eye_center), axis=1), axis=1).reshape((3, 1))
 
     ## ---------- normalize image ----------
     distance = np.linalg.norm(face_center)  # actual distance between eye and original camera
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     # load face model
     face_model_load = np.loadtxt('face_model.txt')  # Generic face model with 3D facial landmarks
     #landmark_use = [20, 23, 26, 29, 15, 19]  # we use eye corners and nose conners
-    landmark_use = [20, 23, 26, 29]
+    landmark_use = [20, 23, 26, 29, 15, 19]
     face_model = face_model_load[landmark_use, :]
     # estimate the head pose,
     ## the complex way to get head pose information, eos library is required,  probably more accurrated
@@ -136,11 +136,11 @@ if __name__ == '__main__':
     # head_pose_estimator = HeadPoseEstimator()
     # hr, ht, o_l, o_r, _ = head_pose_estimator(image, landmarks, camera_matrix[cam_id])
     ## the easy way to get head pose information, fast and simple
-    facePts = face_model.reshape(4, 1, 3)
+    facePts = face_model.reshape(6, 1, 3)
     #landmarks_sub = landmarks[[36, 39, 42, 45, 31, 35], :]
-    landmarks_sub = landmarks[[36, 39, 42, 45], :]
+    landmarks_sub = landmarks[[36, 39, 42, 45, 31, 35], :]
     landmarks_sub = landmarks_sub.astype(float)  # input to solvePnP function must be float type
-    landmarks_sub = landmarks_sub.reshape(4, 1, 2)  # input to solvePnP requires such shape
+    landmarks_sub = landmarks_sub.reshape(6, 1, 2)  # input to solvePnP requires such shape
     hr, ht = estimateHeadPose(landmarks_sub, facePts, camera_matrix, camera_distortion)
     print(hr, ht)
 
