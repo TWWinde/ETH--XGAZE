@@ -4,6 +4,12 @@ import h5py
 
 hdf5_file_path = '/datasets/public/eth-xgaze/preprocessed_224/xgaze_224/train/subject0010.h5'
 
+with open('/datasets/public/eth-xgaze/preprocessed_224/xgaze_224/readme.txt', 'r', encoding='utf-8') as file:
+    content = file.read()
+
+# 打印文件内容
+print(content)
+
 with h5py.File(hdf5_file_path, 'r') as file:
 
     print("Keys: %s" % list(file.keys()))
@@ -12,7 +18,7 @@ with h5py.File(hdf5_file_path, 'r') as file:
     face_gaze = file['face_gaze'][1]
     face_head_pose = file['face_head_pose'][1]
     face_mat_norm = file['face_mat_norm'][1]
-    face_patch = file['face_patch'][1]
+    face_patch = file['face_patch'][1]  #images
     frame_index = file['frame_index'][1]
 
     # 打印数据以检查
