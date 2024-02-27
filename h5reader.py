@@ -1,3 +1,4 @@
+import cv2
 import h5py
 
 
@@ -21,3 +22,6 @@ with h5py.File(hdf5_file_path, 'r') as file:
     print("Face Matrix Normalized:", face_mat_norm)
     print("Face Patch:", face_patch)
     print("Frame Index:", frame_index)
+    output_path = 'example/output/image1.jpg'
+    print('save output image to: ', output_path)
+    cv2.imwrite(output_path, face_patch)
