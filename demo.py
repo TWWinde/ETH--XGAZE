@@ -43,7 +43,7 @@ def draw_gaze(image_in, pitchyaw, thickness=2, color=(0, 0, 255)):
 
 def normalizeData_face(img, face_model, landmarks, hr, ht, cam):
     ## normalized camera parameters
-    focal_norm = 960  # focal length of normalized camera
+    focal_norm = 1300  # focal length of normalized camera
     distance_norm = 600  # normalized distance between eye and camera
     roiSize = (256, 64)  # size of cropped eye image
 
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     # load face model
     face_model_load = np.loadtxt('face_model.txt')  # Generic face model with 3D facial landmarks
     #landmark_use = [20, 23, 26, 29, 15, 19]  # we use eye corners and nose conners
-    landmark_use = [20, 23, 26, 29]
+    landmark_use = [20, 23, 26, 29, 15, 19]
     face_model = face_model_load[landmark_use, :]
     # estimate the head pose,
     ## the complex way to get head pose information, eos library is required,  probably more accurrated
