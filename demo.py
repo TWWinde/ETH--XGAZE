@@ -45,7 +45,7 @@ def normalizeData_face(img, face_model, landmarks, hr, ht, cam):
     ## normalized camera parameters
     focal_norm = 960  # focal length of normalized camera
     distance_norm = 600  # normalized distance between eye and camera
-    roiSize = (256, 64)  # size of cropped eye image
+    roiSize = (256, 100)  # size of cropped eye image
 
     ## compute estimated 3D positions of the landmarks
     ht = ht.reshape((3, 1))
