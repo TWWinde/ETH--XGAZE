@@ -103,7 +103,9 @@ if __name__ == '__main__':
     # face_detector = dlib.cnn_face_detection_model_v1('./modules/mmod_human_face_detector.dat')
     face_detector = dlib.get_frontal_face_detector()  ## this face detector is not very powerful
     detected_faces = face_detector(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), 1) ## convert BGR image to RGB for dlib
-
+    output_path = 'example/output/detected_faces.jpg'
+    print('save output image to: ', output_path)
+    cv2.imwrite(output_path, detected_faces)
     if len(detected_faces) == 0:
         print('warning: no detected face')
         exit(0)
