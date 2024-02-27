@@ -127,7 +127,7 @@ if __name__ == '__main__':
     print('estimate head pose')
     # load face model
     face_model_load = np.loadtxt('face_model.txt')  # Generic face model with 3D facial landmarks
-    landmark_use = [20, 23, 26, 29, 15, 100]  # we use eye corners and nose conners
+    landmark_use = [20, 23, 26, 29, 15, 40]  # we use eye corners and nose conners
     face_model = face_model_load[landmark_use, :]
     # estimate the head pose,
     ## the complex way to get head pose information, eos library is required,  probably more accurrated
