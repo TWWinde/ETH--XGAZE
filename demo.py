@@ -54,8 +54,8 @@ def normalizeData_face(img, face_model, landmarks, hr, ht, cam):
     two_eye_center = np.mean(Fc[:, 0:4], axis=1).reshape((3, 1))
     nose_center = np.mean(Fc[:, 4:6], axis=1).reshape((3, 1))
     # get the face center
-    face_center = np.mean(np.concatenate((two_eye_center), axis=1), axis=1).reshape((3, 1))
-
+    #face_center = np.mean(np.concatenate((two_eye_center, nose_center), axis=1), axis=1).reshape((3, 1))
+    face_center = two_eye_center.reshape((3, 1))
     ## ---------- normalize image ----------
     distance = np.linalg.norm(face_center)  # actual distance between eye and original camera
 
