@@ -136,7 +136,7 @@ if __name__ == '__main__':
     # head_pose_estimator = HeadPoseEstimator()
     # hr, ht, o_l, o_r, _ = head_pose_estimator(image, landmarks, camera_matrix[cam_id])
     ## the easy way to get head pose information, fast and simple
-    facePts = face_model.reshape(6, 1, 3)
+    facePts = face_model.reshape(4, 1, 3)
     #landmarks_sub = landmarks[[36, 39, 42, 45, 31, 35], :]
     landmarks_sub = landmarks[[36, 39, 42, 45], :]
     landmarks_sub = landmarks_sub.astype(float)  # input to solvePnP function must be float type
