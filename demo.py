@@ -109,11 +109,7 @@ if __name__ == '__main__':
         exit(0)
     print('detected one face')
     shape = predictor(image, detected_faces[0]) ## only use the first detected face (assume that each input image only contains one face)
-
     shape = face_utils.shape_to_np(shape)
-    output_path = 'example/output/detected_faces.jpg'
-    print('save output image to: ', output_path)
-    cv2.imwrite(output_path, shape)
     landmarks = []
     for (x, y) in shape:
         landmarks.append((x, y))
